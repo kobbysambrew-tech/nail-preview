@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lucky Nails — Book Now</title>
+  <meta name="description" content="Lucky Nails — clean manicures, pedicures, gel, acrylics. Call or request an appointment online." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#101a33;
+      --muted:#9fb0d0;
+      --text:#eef3ff;
+      --accent:#7c5cff;
+      --accent2:#38bdf8;
+      --line:rgba(255,255,255,.10);
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1100px 600px at 20% 10%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(900px 550px at 90% 30%, rgba(56,189,248,.28), transparent 55%),
+        radial-gradient(1000px 650px at 40% 100%, rgba(236,72,153,.18), transparent 60%),
+        var(--bg);
+      min-height:100vh;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:22px}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:12px 14px; border:1px solid var(--line);
+      background:rgba(16,26,51,.55); backdrop-filter: blur(10px);
+      border-radius:999px; box-shadow: var(--shadow);
+      position:sticky; top:14px; z-index:30;
+    }
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{
+      width:34px;height:34px;border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 25px rgba(124,92,255,.25);
+    }
+    .brand b{letter-spacing:.2px}
+    .navlinks{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .navlinks a{color:var(--muted);font-size:14px;padding:8px 10px;border-radius:999px}
+    .navlinks a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .btn{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      padding:10px 14px;border-radius:999px;
+      font-weight:600;font-size:14px;display:inline-flex;gap:10px;align-items:center;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.primary{
+      border:0;
+      background: linear-gradient(135deg, var(--accent), #b16cff);
+      box-shadow: 0 14px 30px rgba(124,92,255,.25);
+    }
+    .hero{
+      margin-top:18px;
+      display:grid; grid-template-columns: 1.15fr .85fr;
+      gap:18px; align-items:stretch;
+    }
+    .card{
+      border:1px solid var(--line);
+      background:rgba(16,26,51,.55);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .pad{padding:18px}
+    h1{margin:0;font-size:38px;line-height:1.05;letter-spacing:-.6px}
+    .sub{margin:10px 0 0;color:var(--muted);font-size:16px;line-height:1.5}
+    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .pillRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .pill{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      border-radius:999px;
+      padding:8px 10px;font-size:13px;color:var(--muted);
+      display:inline-flex;gap:8px;align-items:center;
+    }
+    .grid{
+      margin-top:18px;
+      display:grid; grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .span6{grid-column: span 6}
+    .span4{grid-column: span 4}
+    .span8{grid-column: span 8}
+    .span12{grid-column: span 12}
+
+    .sectionTitle{font-size:18px;margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .list{display:grid;gap:10px;margin-top:8px}
+    .item{
+      display:flex;justify-content:space-between;gap:10px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      padding:12px;border-radius:16px;
+    }
+    .item b{font-size:14px}
+    .price{font-weight:800}
+    .tiny{font-size:12px;color:var(--muted)}
+    .twoCol{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .notice{
+      border:1px dashed rgba(255,255,255,.18);
+      background:rgba(0,0,0,.12);
+      padding:12px;border-radius:16px;color:var(--muted);
+      font-size:13px;line-height:1.5;
+    }
+    .formGrid{display:grid;gap:10px}
+    label{font-size:12px;color:var(--muted)}
+    input, select, textarea{
+      width:100%; padding:12px 12px; border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.22);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:110px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .mapWrap{border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+    .mapWrap iframe{width:100%;height:240px;border:0;filter: saturate(1.1) contrast(1.05)}
+    .footer{
+      margin:18px 0 10px;
+      display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+      color:var(--muted);font-size:12px
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;border-radius:16px;
+      border:1px solid var(--line); background:rgba(255,255,255,.04);
+      color:var(--muted); font-size:13px;
+    }
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      h1{font-size:34px}
+      .span6,.span4,.span8,.span12{grid-column:span 12}
+      .row{grid-template-columns:1fr}
+      .twoCol{grid-template-columns:1fr}
+      .navlinks{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- Top Nav -->
+    <div class="nav">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <b id="bizNameTop">Lucky Nails</b>
+          <div class="tiny" id="bizTagTop">Nail Salon • Walk-ins Welcome</div>
+        </div>
+      </div>
+
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#book">Book</a>
+        <a href="#location">Location</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <a class="btn primary" id="callBtnTop" href="tel:+19525551234">📞 Call Now</a>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="card">
+        <div class="pad">
+          <h1 id="heroTitle">Fresh nails. Clean work. Book in seconds.</h1>
+          <p class="sub" id="heroSub">
+            Skip the Facebook scroll. Call or request an appointment online — we’ll confirm quickly.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" id="callBtnHero" href="tel:+19525551234">📞 Tap to Call</a>
+            <a class="btn" href="#book">🗓️ Request Appointment</a>
+            <a class="btn" id="textBtn" href="sms:+19525551234">💬 Text</a>
+          </div>
+
+          <div class="pillRow">
+            <span class="pill">✨ Gel • Acrylic • Dip</span>
+            <span class="pill">🧼 Clean tools & stations</span>
+            <span class="pill">⏱️ Quick turnaround</span>
+          </div>
+
+          <div style="margin-top:14px" class="notice">
+            <b style="color:var(--text)">Owner note:</b>
+            This page is a simple “booking hub” so customers can call or request a time without hunting through Facebook.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="pad">
+          <div class="badge">⭐ Rated <b style="color:var(--text)" id="rating">3.0</b> on Yelp</div>
+          <div style="height:10px"></div>
+          <div class="badge">🕒 <b style="color:var(--text)" id="openStatus">Open</b> • Today <span id="todayHours">10:00 AM – 7:00 PM</span></div>
+          <div style="height:10px"></div>
+          <div class="badge">📍 <span id="addressShort">Shakopee, MN</span></div>
+
+          <div style="height:14px"></div>
+
+          <!-- Simple gallery placeholders -->
+          <div class="twoCol">
+            <div class="card" style="background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.10)">
+              <div class="pad">
+                <div class="tiny">Photo</div>
+                <div style="height:120px;border-radius:14px;border:1px solid var(--line);background:
+                  linear-gradient(135deg, rgba(124,92,255,.25), rgba(56,189,248,.20));
+                "></div>
+              </div>
+            </div>
+            <div class="card" style="background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.10)">
+              <div class="pad">
+                <div class="tiny">Photo</div>
+                <div style="height:120px;border-radius:14px;border:1px solid var(--line);background:
+                  linear-gradient(135deg, rgba(56,189,248,.20), rgba(236,72,153,.18));
+                "></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="height:12px"></div>
+          <div class="tiny">Tip: replace these placeholders with real salon photos later.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sections grid -->
+    <div class="grid">
+      <!-- Services -->
+      <div class="card span6" id="services">
+        <div class="pad">
+          <h2 class="sectionTitle">Popular Services</h2>
+          <div class="muted tiny">Simple menu — you can edit prices anytime.</div>
+
+          <div class="list" style="margin-top:12px">
+            <div class="item"><div><b>Classic Manicure</b><div class="tiny">Clean, shape, polish</div></div><div class="price">$25</div></div>
+            <div class="item"><div><b>Classic Pedicure</b><div class="tiny">Soak, scrub, polish</div></div><div class="price">$35</div></div>
+            <div class="item"><div><b>Gel Manicure</b><div class="tiny">Long-lasting shine</div></div><div class="price">$40</div></div>
+            <div class="item"><div><b>Acrylic Full Set</b><div class="tiny">Length + style</div></div><div class="price">$55+</div></div>
+            <div class="item"><div><b>Dip Powder</b><div class="tiny">Strong & lightweight</div></div><div class="price">$45+</div></div>
+          </div>
+
+          <div style="margin-top:12px" class="notice">
+            Want a full price list? We can add a “Services” page later — this is perfect for a quick booking site.
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick info -->
+      <div class="card span6">
+        <div class="pad">
+          <h2 class="sectionTitle">Quick Info</h2>
+          <div class="list">
+            <div class="item">
+              <div>
+                <b>Phone</b>
+                <div class="tiny" id="phoneText">(952) 555-1234</div>
+              </div>
+              <a class="btn" id="callBtnInfo" href="tel:+19525551234">Call</a>
+            </div>
+            <div class="item">
+              <div>
+                <b>Text</b>
+                <div class="tiny">Fast questions (availability, walk-ins)</div>
+              </div>
+              <a class="btn" id="smsBtnInfo" href="sms:+19525551234">Text</a>
+            </div>
+            <div class="item">
+              <div>
+                <b>Hours (example)</b>
+                <div class="tiny">Mon–Sat 10–7 • Sun 11–5</div>
+              </div>
+              <div class="pill">🕒</div>
+            </div>
+            <div class="item">
+              <div>
+                <b>Best for</b>
+                <div class="tiny">Gel • Acrylic • Pedis</div>
+              </div>
+              <div class="pill">✨</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="notice">
+            This page is designed for mobile first: big tap buttons, clear info, and quick booking.
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking -->
+      <div class="card span8" id="book">
+        <div class="pad">
+          <h2 class="sectionTitle">Request an Appointment</h2>
+          <p class="muted" style="margin-top:0">
+            Fill this out and we’ll confirm by text/call. (Walk-ins welcome too.)
+          </p>
+
+          <!-- EASY MODE: Use Google Forms instead. This inline form is a preview. -->
+          <form class="formGrid" id="bookingForm">
+            <div class="row">
+              <div>
+                <label>Your name</label>
+                <input required name="name" placeholder="e.g., Jasmine" />
+              </div>
+              <div>
+                <label>Phone number</label>
+                <input required name="phone" inputmode="tel" placeholder="e.g., (952) 123-4567" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label>Service</label>
+                <select name="service">
+                  <option>Gel Manicure</option>
+                  <option>Classic Manicure</option>
+                  <option>Classic Pedicure</option>
+                  <option>Acrylic Full Set</option>
+                  <option>Dip Powder</option>
+                  <option>Other / Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label>Preferred day/time</label>
+                <input name="time" placeholder="e.g., Friday after 4pm" />
+              </div>
+            </div>
+
+            <div>
+              <label>Notes</label>
+              <textarea name="notes" placeholder="Any details (color, design, length, etc.)"></textarea>
+            </div>
+
+            <div class="ctaRow">
+              <button class="btn primary" type="submit">Send Request</button>
+              <a class="btn" id="callBtnBook" href="tel:+19525551234">Or Call Now</a>
+            </div>
+
+            <div class="tiny" id="formStatus" style="margin-top:6px"></div>
+          </form>
+
+          <div style="margin-top:14px" class="notice">
+            <b style="color:var(--text)">Pro move:</b> Replace this with a Google Form so the owner gets requests in their email instantly.
+            I’ll show you how in 2 minutes below.
+          </div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="card span4" id="location">
+        <div class="pad">
+          <h2 class="sectionTitle">Location</h2>
+          <div class="muted tiny" id="addressFull">123 Main St, Shakopee, MN 55379</div>
+
+          <div style="height:12px"></div>
+          <div class="mapWrap">
+            <!-- Replace the src with the salon's Google Maps embed later -->
+            <iframe
+              src="https://www.google.com/maps?q=Shakopee%20MN&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Map">
+            </iframe>
+          </div>
+
+          <div style="height:12px"></div>
+          <a class="btn" id="directionsBtn" target="_blank" rel="noreferrer"
+             href="https://www.google.com/maps/search/?api=1&query=Shakopee%20MN">
+            🧭 Get Directions
+          </a>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="card span12" id="faq">
+        <div class="pad">
+          <h2 class="sectionTitle">FAQ</h2>
+          <div class="twoCol">
+            <div class="notice">
+              <b style="color:var(--text)">Do you take walk-ins?</b><br/>
+              Yes — walk-ins are welcome. For the fastest service, request an appointment above.
+            </div>
+            <div class="notice">
+              <b style="color:var(--text)">How do I book?</b><br/>
+              Tap “Call Now” or send a request form — we’ll confirm by text/call.
+            </div>
+            <div class="notice">
+              <b style="color:var(--text)">Do you do designs?</b><br/>
+              Yes. Add notes in your request (color/design/length) and we’ll confirm.
+            </div>
+            <div class="notice">
+              <b style="color:var(--text)">What payments do you accept?</b><br/>
+              Add icons here later (cash/card/Apple Pay). Keep it simple for now.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>© <span id="year"></span> <span id="bizNameFoot">Lucky Nails</span>. All rights reserved.</div>
+      <div class="tiny">Built as a simple mobile booking page (better than Facebook-only).</div>
+    </div>
+  </div>
+
+  <script>
+    // === QUICK EDIT SETTINGS (change these first) ===
+    const SETTINGS = {
+      businessName: "Lucky Nails",
+      tagline: "Nail Salon • Walk-ins Welcome",
+      phonePretty: "(952) 555-1234",
+      phoneTel: "+19525551234",
+      addressShort: "Shakopee, MN",
+      addressFull: "123 Main St, Shakopee, MN 55379",
+      rating: "3.0",
+      todayHours: "10:00 AM – 7:00 PM",
+      openStatus: "Open",
+      // Replace with real place later:
+      directionsQuery: "Lucky Nails Shakopee MN",
+      // Replace map later:
+      mapQuery: "Lucky Nails Shakopee MN"
+    };
+
+    // Apply settings to the page
+    document.getElementById("bizNameTop").textContent = SETTINGS.businessName;
+    document.getElementById("bizNameFoot").textContent = SETTINGS.businessName;
+    document.getElementById("bizTagTop").textContent = SETTINGS.tagline;
+    document.getElementById("phoneText").textContent = SETTINGS.phonePretty;
+    document.getElementById("addressShort").textContent = SETTINGS.addressShort;
+    document.getElementById("addressFull").textContent = SETTINGS.addressFull;
+    document.getElementById("rating").textContent = SETTINGS.rating;
+    document.getElementById("todayHours").textContent = SETTINGS.todayHours;
+    document.getElementById("openStatus").textContent = SETTINGS.openStatus;
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Update call/text links everywhere
+    const telLinks = ["callBtnTop","callBtnHero","callBtnInfo","callBtnBook"];
+    telLinks.forEach(id => document.getElementById(id).setAttribute("href", "tel:" + SETTINGS.phoneTel));
+    document.getElementById("textBtn").setAttribute("href", "sms:" + SETTINGS.phoneTel);
+    document.getElementById("smsBtnInfo").setAttribute("href", "sms:" + SETTINGS.phoneTel);
+
+    // Directions & map
+    const directionsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(SETTINGS.directionsQuery);
+    document.getElementById("directionsBtn").setAttribute("href", directionsUrl);
+
+    const mapSrc = "https://www.google.com/maps?q=" + encodeURIComponent(SETTINGS.mapQuery) + "&output=embed";
+    document.querySelector(".mapWrap iframe").setAttribute("src", mapSrc);
+
+    // Booking form (preview behavior)
+    const form = document.getElementById("bookingForm");
+    const statusEl = document.getElementById("formStatus");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      statusEl.textContent = "✅ Request captured (preview). For a real salon, connect this to Google Forms (next step).";
+      statusEl.style.color = "#c7d2fe";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
