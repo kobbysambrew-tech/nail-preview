@@ -8,86 +8,126 @@
 
   <style>
     :root{
-      /* GREEN + TAN THEME */
-      --bg:#07140f;                 /* deep green-black */
-      --card:#0b1e16;               /* dark green */
-      --muted:#d7c9b2;              /* warm tan muted text */
-      --text:#f3f0e8;               /* soft off-white */
-      --accent:#2fbf7a;             /* emerald green */
-      --accent2:#d8c29a;            /* tan/gold */
-      --line:rgba(243,240,232,.10);
-      --shadow: 0 18px 40px rgba(0,0,0,.45);
-      --radius:18px;
+      /* CLEAN TAN + GREEN (modern, not “techy”) */
+      --bg:#f4efe6;              /* tan page background */
+      --card:#ffffff;            /* card surface */
+      --muted:#4f4a41;           /* muted text */
+      --text:#111111;            /* main text */
+      --accent:#1f7a4a;          /* green */
+      --accentDark:#145235;      /* darker green for hover */
+      --line:rgba(17,17,17,.12); /* borders */
+      --shadow: 0 10px 24px rgba(17,17,17,.08);
+      --radius:14px;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
-      background:
-        radial-gradient(1100px 600px at 20% 10%, rgba(47,191,122,.22), transparent 60%),
-        radial-gradient(900px 550px at 90% 30%, rgba(216,194,154,.18), transparent 55%),
-        radial-gradient(1000px 650px at 40% 100%, rgba(90,160,120,.14), transparent 60%),
-        var(--bg);
+      background: var(--bg);
       min-height:100vh;
     }
-    a{color:inherit;text-decoration:none}
+
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
     .wrap{max-width:1100px;margin:0 auto;padding:22px}
+
     .nav{
       display:flex; align-items:center; justify-content:space-between;
-      gap:16px; padding:12px 14px; border:1px solid var(--line);
-      background:rgba(11,30,22,.60); backdrop-filter: blur(10px);
-      border-radius:999px; box-shadow: var(--shadow);
+      gap:16px; padding:14px 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      border-radius:999px;
+      box-shadow: var(--shadow);
       position:sticky; top:14px; z-index:30;
     }
+
     .brand{display:flex;align-items:center;gap:10px}
     .logo{
-      width:34px;height:34px;border-radius:12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 10px 25px rgba(47,191,122,.18);
+      width:34px;height:34px;border-radius:10px;
+      background: var(--accent);
+      box-shadow: 0 6px 14px rgba(31,122,74,.18);
     }
     .brand b{letter-spacing:.2px}
     .navlinks{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-    .navlinks a{color:var(--muted);font-size:14px;padding:8px 10px;border-radius:999px}
-    .navlinks a:hover{background:rgba(243,240,232,.06);color:var(--text)}
+    .navlinks a{
+      color:var(--muted);
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:999px;
+      text-decoration:none;
+    }
+    .navlinks a:hover{
+      background: rgba(31,122,74,.08);
+      color: var(--accentDark);
+      text-decoration:none;
+    }
+
     .btn{
       border:1px solid var(--line);
-      background:rgba(243,240,232,.06);
+      background:#ffffff;
       color:var(--text);
       padding:10px 14px;border-radius:999px;
-      font-weight:600;font-size:14px;display:inline-flex;gap:10px;align-items:center;
+      font-weight:650;font-size:14px;
+      display:inline-flex;gap:10px;align-items:center;
+      box-shadow: 0 6px 14px rgba(17,17,17,.06);
+      text-decoration:none;
     }
-    .btn:hover{transform: translateY(-1px)}
+    .btn:hover{
+      border-color: rgba(31,122,74,.35);
+      box-shadow: 0 10px 22px rgba(17,17,17,.08);
+      text-decoration:none;
+    }
+
     .btn.primary{
-      border:0;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 14px 30px rgba(47,191,122,.18);
+      border:1px solid transparent;
+      background: var(--accent);
+      color:#fff;
+      box-shadow: 0 10px 20px rgba(31,122,74,.20);
     }
+    .btn.primary:hover{
+      background: var(--accentDark);
+      box-shadow: 0 14px 26px rgba(31,122,74,.22);
+    }
+
     .hero{
       margin-top:18px;
       display:grid; grid-template-columns: 1.15fr .85fr;
       gap:18px; align-items:stretch;
     }
+
     .card{
       border:1px solid var(--line);
-      background:rgba(11,30,22,.62);
-      backdrop-filter: blur(10px);
+      background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
     }
+
     .pad{padding:18px}
-    h1{margin:0;font-size:38px;line-height:1.05;letter-spacing:-.6px}
+    h1{
+      margin:0;
+      font-size:38px;
+      line-height:1.05;
+      letter-spacing:-.6px;
+      font-weight:800;
+      color: #111;
+    }
     .sub{margin:10px 0 0;color:var(--muted);font-size:16px;line-height:1.5}
+
     .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+
     .pillRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
     .pill{
       border:1px solid var(--line);
-      background:rgba(243,240,232,.04);
+      background: #fbfaf7;
       border-radius:999px;
       padding:8px 10px;font-size:13px;color:var(--muted);
       display:inline-flex;gap:8px;align-items:center;
     }
+
     .grid{
       margin-top:18px;
       display:grid; grid-template-columns: repeat(12, 1fr);
@@ -98,48 +138,61 @@
     .span8{grid-column: span 8}
     .span12{grid-column: span 12}
 
-    .sectionTitle{font-size:18px;margin:0 0 10px}
+    .sectionTitle{font-size:18px;margin:0 0 10px;font-weight:800}
     .muted{color:var(--muted)}
     .list{display:grid;gap:10px;margin-top:8px}
+
     .item{
       display:flex;justify-content:space-between;gap:10px;
       border:1px solid var(--line);
-      background:rgba(243,240,232,.04);
-      padding:12px;border-radius:16px;
+      background:#fbfaf7;
+      padding:12px;border-radius:12px;
     }
     .item b{font-size:14px}
-    .price{font-weight:800}
+    .price{font-weight:900}
     .tiny{font-size:12px;color:var(--muted)}
+
     .twoCol{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
     .notice{
-      border:1px dashed rgba(243,240,232,.18);
-      background:rgba(0,0,0,.12);
-      padding:12px;border-radius:16px;color:var(--muted);
+      border:1px dashed rgba(17,17,17,.22);
+      background:#fbfaf7;
+      padding:12px;border-radius:12px;color:var(--muted);
       font-size:13px;line-height:1.5;
     }
+
     .formGrid{display:grid;gap:10px}
     label{font-size:12px;color:var(--muted)}
     input, select, textarea{
-      width:100%; padding:12px 12px; border-radius:14px;
+      width:100%; padding:12px 12px; border-radius:12px;
       border:1px solid var(--line);
-      background:rgba(0,0,0,.22);
+      background:#ffffff;
       color:var(--text);
       outline:none;
     }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(31,122,74,.55);
+      box-shadow: 0 0 0 3px rgba(31,122,74,.12);
+    }
     textarea{min-height:110px;resize:vertical}
     .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .mapWrap{border-radius:16px;overflow:hidden;border:1px solid var(--line)}
-    .mapWrap iframe{width:100%;height:240px;border:0;filter: saturate(1.05) contrast(1.05)}
+
+    .mapWrap{border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+    .mapWrap iframe{width:100%;height:240px;border:0;filter:none}
+
     .footer{
       margin:18px 0 10px;
       display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
       color:var(--muted);font-size:12px
     }
+
     .badge{
       display:inline-flex;align-items:center;gap:8px;
-      padding:10px 12px;border-radius:16px;
-      border:1px solid var(--line); background:rgba(243,240,232,.04);
-      color:var(--muted); font-size:13px;
+      padding:10px 12px;border-radius:12px;
+      border:1px solid var(--line);
+      background:#fbfaf7;
+      color:var(--muted);
+      font-size:13px;
     }
 
     @media (max-width: 900px){
@@ -213,20 +266,16 @@
 
           <div style="height:14px"></div>
 
-          <!-- Gallery placeholders (swap with real photos anytime) -->
+          <!-- Gallery placeholders -->
           <div class="twoCol">
-            <div class="card" style="background:rgba(243,240,232,.03);border-color:rgba(243,240,232,.10)">
+            <div class="card" style="background:#ffffff;border-color:rgba(17,17,17,.12)">
               <div class="pad">
-                <div style="height:140px;border-radius:14px;border:1px solid var(--line);background:
-                  linear-gradient(135deg, rgba(47,191,122,.20), rgba(216,194,154,.18));
-                "></div>
+                <div style="height:140px;border-radius:12px;border:1px solid rgba(17,17,17,.12);background:#fbfaf7;"></div>
               </div>
             </div>
-            <div class="card" style="background:rgba(243,240,232,.03);border-color:rgba(243,240,232,.10)">
+            <div class="card" style="background:#ffffff;border-color:rgba(17,17,17,.12)">
               <div class="pad">
-                <div style="height:140px;border-radius:14px;border:1px solid var(--line);background:
-                  linear-gradient(135deg, rgba(216,194,154,.18), rgba(90,160,120,.14));
-                "></div>
+                <div style="height:140px;border-radius:12px;border:1px solid rgba(17,17,17,.12);background:#fbfaf7;"></div>
               </div>
             </div>
           </div>
@@ -455,7 +504,7 @@
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       statusEl.textContent = "✅ Thanks! We received your request and will confirm by call/text shortly.";
-      statusEl.style.color = "#c7d2fe";
+      statusEl.style.color = "#1f7a4a";
       form.reset();
     });
   </script>
