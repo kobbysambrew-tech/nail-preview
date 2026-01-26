@@ -8,14 +8,15 @@
 
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#101a33;
-      --muted:#9fb0d0;
-      --text:#eef3ff;
-      --accent:#7c5cff;
-      --accent2:#38bdf8;
-      --line:rgba(255,255,255,.10);
-      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      /* GREEN + TAN THEME */
+      --bg:#07140f;                 /* deep green-black */
+      --card:#0b1e16;               /* dark green */
+      --muted:#d7c9b2;              /* warm tan muted text */
+      --text:#f3f0e8;               /* soft off-white */
+      --accent:#2fbf7a;             /* emerald green */
+      --accent2:#d8c29a;            /* tan/gold */
+      --line:rgba(243,240,232,.10);
+      --shadow: 0 18px 40px rgba(0,0,0,.45);
       --radius:18px;
     }
     *{box-sizing:border-box}
@@ -24,9 +25,9 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
-        radial-gradient(1100px 600px at 20% 10%, rgba(124,92,255,.35), transparent 60%),
-        radial-gradient(900px 550px at 90% 30%, rgba(56,189,248,.28), transparent 55%),
-        radial-gradient(1000px 650px at 40% 100%, rgba(236,72,153,.18), transparent 60%),
+        radial-gradient(1100px 600px at 20% 10%, rgba(47,191,122,.22), transparent 60%),
+        radial-gradient(900px 550px at 90% 30%, rgba(216,194,154,.18), transparent 55%),
+        radial-gradient(1000px 650px at 40% 100%, rgba(90,160,120,.14), transparent 60%),
         var(--bg);
       min-height:100vh;
     }
@@ -35,7 +36,7 @@
     .nav{
       display:flex; align-items:center; justify-content:space-between;
       gap:16px; padding:12px 14px; border:1px solid var(--line);
-      background:rgba(16,26,51,.55); backdrop-filter: blur(10px);
+      background:rgba(11,30,22,.60); backdrop-filter: blur(10px);
       border-radius:999px; box-shadow: var(--shadow);
       position:sticky; top:14px; z-index:30;
     }
@@ -43,15 +44,15 @@
     .logo{
       width:34px;height:34px;border-radius:12px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 10px 25px rgba(124,92,255,.25);
+      box-shadow: 0 10px 25px rgba(47,191,122,.18);
     }
     .brand b{letter-spacing:.2px}
     .navlinks{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
     .navlinks a{color:var(--muted);font-size:14px;padding:8px 10px;border-radius:999px}
-    .navlinks a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .navlinks a:hover{background:rgba(243,240,232,.06);color:var(--text)}
     .btn{
       border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
+      background:rgba(243,240,232,.06);
       color:var(--text);
       padding:10px 14px;border-radius:999px;
       font-weight:600;font-size:14px;display:inline-flex;gap:10px;align-items:center;
@@ -59,8 +60,8 @@
     .btn:hover{transform: translateY(-1px)}
     .btn.primary{
       border:0;
-      background: linear-gradient(135deg, var(--accent), #b16cff);
-      box-shadow: 0 14px 30px rgba(124,92,255,.25);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 14px 30px rgba(47,191,122,.18);
     }
     .hero{
       margin-top:18px;
@@ -69,7 +70,7 @@
     }
     .card{
       border:1px solid var(--line);
-      background:rgba(16,26,51,.55);
+      background:rgba(11,30,22,.62);
       backdrop-filter: blur(10px);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -82,7 +83,7 @@
     .pillRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
     .pill{
       border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
+      background:rgba(243,240,232,.04);
       border-radius:999px;
       padding:8px 10px;font-size:13px;color:var(--muted);
       display:inline-flex;gap:8px;align-items:center;
@@ -103,7 +104,7 @@
     .item{
       display:flex;justify-content:space-between;gap:10px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
+      background:rgba(243,240,232,.04);
       padding:12px;border-radius:16px;
     }
     .item b{font-size:14px}
@@ -111,7 +112,7 @@
     .tiny{font-size:12px;color:var(--muted)}
     .twoCol{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .notice{
-      border:1px dashed rgba(255,255,255,.18);
+      border:1px dashed rgba(243,240,232,.18);
       background:rgba(0,0,0,.12);
       padding:12px;border-radius:16px;color:var(--muted);
       font-size:13px;line-height:1.5;
@@ -128,7 +129,7 @@
     textarea{min-height:110px;resize:vertical}
     .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     .mapWrap{border-radius:16px;overflow:hidden;border:1px solid var(--line)}
-    .mapWrap iframe{width:100%;height:240px;border:0;filter: saturate(1.1) contrast(1.05)}
+    .mapWrap iframe{width:100%;height:240px;border:0;filter: saturate(1.05) contrast(1.05)}
     .footer{
       margin:18px 0 10px;
       display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
@@ -137,7 +138,7 @@
     .badge{
       display:inline-flex;align-items:center;gap:8px;
       padding:10px 12px;border-radius:16px;
-      border:1px solid var(--line); background:rgba(255,255,255,.04);
+      border:1px solid var(--line); background:rgba(243,240,232,.04);
       color:var(--muted); font-size:13px;
     }
 
@@ -214,17 +215,17 @@
 
           <!-- Gallery placeholders (swap with real photos anytime) -->
           <div class="twoCol">
-            <div class="card" style="background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.10)">
+            <div class="card" style="background:rgba(243,240,232,.03);border-color:rgba(243,240,232,.10)">
               <div class="pad">
                 <div style="height:140px;border-radius:14px;border:1px solid var(--line);background:
-                  linear-gradient(135deg, rgba(124,92,255,.25), rgba(56,189,248,.20));
+                  linear-gradient(135deg, rgba(47,191,122,.20), rgba(216,194,154,.18));
                 "></div>
               </div>
             </div>
-            <div class="card" style="background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.10)">
+            <div class="card" style="background:rgba(243,240,232,.03);border-color:rgba(243,240,232,.10)">
               <div class="pad">
                 <div style="height:140px;border-radius:14px;border:1px solid var(--line);background:
-                  linear-gradient(135deg, rgba(56,189,248,.20), rgba(236,72,153,.18));
+                  linear-gradient(135deg, rgba(216,194,154,.18), rgba(90,160,120,.14));
                 "></div>
               </div>
             </div>
